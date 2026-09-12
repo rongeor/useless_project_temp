@@ -5,8 +5,8 @@
 ---
 
 ### 👥 Team Details
-* **Member 1:** Ron George ([@rongeor](https://github.com/rongeor))
-* **Venue:** [Insert your venue/campus name here]
+Team Lead: Abhinadh Shine - Saintgits College of Engineering
+Member 2: Ron Geo Roy - Saintgits College of Engineering
 
 ---
 
@@ -15,7 +15,7 @@ Most modern journeys end with people simply wanting to go back home, yet navigat
 
 ### ⚙️ The "Solution"
 **TrueHomeFinder** cuts out the middleman entirely:
-1. The user picks any target destination on earth via a laptop dispatch terminal (e.g., Paris, Mars, the local bakery).
+1. The user picks any target destination on earth via a laptop dispatch terminal .
 2. The Arduino Uno runs quantum route calculations on an SH1106 OLED HUD.
 3. The system directs the user through four strict 90-degree right turns and fixed-pace walking intervals confirmed via tactile hardware button presses.
 4. The user arrives back at their exact origin with **100% positional accuracy** and **0% wasted travel**.
@@ -23,7 +23,7 @@ Most modern journeys end with people simply wanting to go back home, yet navigat
 ---
 
 ### 🛠️ Hardware & Tools Used
-* **Microcontroller:** Arduino Uno (ATmega328P)
+* **Microcontroller:** Arduino Uno 
 * **HUD Display:** 1.3" / 0.96" I2C OLED (SH1106 Driver)
 * **Audio Module:** 5V Piezo Buzzer
 * **Input:** Tactile momentary push button
