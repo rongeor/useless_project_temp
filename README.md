@@ -28,7 +28,8 @@ Most modern journeys end with people simply wanting to go back home, yet navigat
 * **HUD Display:** 1.3" / 0.96" I2C OLED (SH1106 Driver)
 * **Audio Module:** 5V Piezo Buzzer
 * **Input:** Tactile momentary push button
-* **Software:** Arduino C++, Python 3 (`pyserial`), Adafruit GFX & SH110X libraries
+* **Software:** Arduino C++, Python 3 (`pyserial`)
+* **Libraries:** Adafruit GFX & SH110X libraries 
 
 ---
 
