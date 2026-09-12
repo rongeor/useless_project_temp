@@ -6,6 +6,7 @@
 
 ### 👥 Team Details
 Team Lead: Abhinadh Shine - Saintgits College of Engineering
+
 Member 2: Ron Geo Roy - Saintgits College of Engineering
 
 ---
