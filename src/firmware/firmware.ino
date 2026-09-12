@@ -11,7 +11,11 @@ Adafruit_SH1106G display = Adafruit_SH1106G(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, 
 
 const int PIN_BUTTON = 2;
 const int PIN_BUZZER = 8;
+const int PIN_TRIG   = 11;
+const int PIN_ECHO   = 12;
+
 const int STEPS_PER_LEG = 25;
+const int OBSTACLE_DISTANCE_CM = 20; // Trigger distance in cm
 
 String targetDestination = "";
 
@@ -21,7 +25,44 @@ void soundBeep(unsigned int freq, unsigned long ms) {
   noTone(PIN_BUZZER);
 }
 
-void waitForButtonPress() {
+// Measure distance in centimeters using HC-SR04
+long readUltrasonicCM() {
+  digitalWrite(PIN_TRIG, LOW);
+  delayMicroseconds(2);
+  digitalWrite(PIN_TRIG, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(PIN_TRIG, LOW);
+
+  long duration = pulseIn(PIN_ECHO, HIGH, 25000); // 25ms timeout (~4 meters)
+  if (duration == 0) return 999;                  // No echo received
+  return duration * 0.034 / 2;
+}
+
+// Blocks until button is pressed, or returns TRUE early if an obstacle is spotted
+bool waitForWalkOrObstacle() {
+  Serial.println(F("[WALKING] Pacing forward... Ultrasonic collision avoidance active."));
+
+  while (true) {
+    // 1. Check Button Press
+    if (digitalRead(PIN_BUTTON) == LOW) {
+      soundBeep(2200, 80);
+      while (digitalRead(PIN_BUTTON) == LOW) { delay(10); } // Wait for release
+      delay(100);
+      return false; // Completed walk normally
+    }
+
+    // 2. Check Ultrasonic Distance
+    long dist = readUltrasonicCM();
+    if (dist > 0 && dist <= OBSTACLE_DISTANCE_CM) {
+      return true; // Obstacle detected!
+    }
+
+    delay(60); // Polling interval
+  }
+}
+
+// Regular button-wait function for turns and idle screens
+void waitForButtonOnly() {
   while (digitalRead(PIN_BUTTON) == HIGH) {
     delay(10);
   }
@@ -29,7 +70,7 @@ void waitForButtonPress() {
   while (digitalRead(PIN_BUTTON) == LOW) {
     delay(10);
   }
-  delay(150);
+  delay(100);
 }
 
 void drawArrowUp() {
@@ -40,6 +81,25 @@ void drawArrowUp() {
 void drawArrowRight() {
   display.fillTriangle(84, 22, 64, 6, 64, 38, SH110X_WHITE);
   display.fillRect(44, 16, 20, 12, SH110X_WHITE);
+}
+
+void showTurnDirective() {
+  display.clearDisplay();
+  drawArrowRight();
+  display.setTextSize(1);
+  display.setTextColor(SH110X_WHITE);
+  display.setCursor(16, 44);
+  display.println(F("COURSE VECTOR"));
+  display.setCursor(10, 54);
+  display.println(F("TURN 90*R >PRESS<"));
+  display.display();
+
+  Serial.println(F("TURN: Rotate 90 degrees right, then press button."));
+
+  soundBeep(1300, 120);
+  delay(80);
+  soundBeep(1300, 200);
+  waitForButtonOnly();
 }
 
 void showSelectDestinationScreen() {
@@ -59,13 +119,15 @@ void setup() {
   Serial.begin(9600);
   pinMode(PIN_BUTTON, INPUT_PULLUP);
   pinMode(PIN_BUZZER, OUTPUT);
+  pinMode(PIN_TRIG, OUTPUT);
+  pinMode(PIN_ECHO, INPUT);
 
   display.begin(i2c_Address, true);
   showSelectDestinationScreen();
 }
 
 void executeMockJourney() {
-  // 1. Mock Pathfinding Display
+  // 1. Initial Mock Pathfinding Display
   display.clearDisplay();
   display.setTextSize(1);
   display.setTextColor(SH110X_WHITE);
@@ -78,7 +140,7 @@ void executeMockJourney() {
   display.println(F("AVOIDING DETOURS..."));
   display.display();
 
-  Serial.print(F("Calculating direct-line vector to: "));
+  Serial.print(F("Routing directly to: "));
   Serial.println(targetDestination);
 
   for (int i = 0; i < 4; i++) {
@@ -86,9 +148,10 @@ void executeMockJourney() {
     delay(150);
   }
 
-  // 2. Interactive Navigation Loop
-  for (int leg = 1; leg <= 4; leg++) {
-    // --- Walk Leg ---
+  // 2. The 4-Leg Navigation Loop
+  int leg = 1;
+  while (leg <= 4) {
+    // --- Step A: Forward Leg Directive ---
     display.clearDisplay();
     drawArrowUp();
     display.setTextSize(1);
@@ -103,39 +166,50 @@ void executeMockJourney() {
     display.println(F("P >PRESS<"));
     display.display();
 
-    // Mirror to Laptop
     Serial.print(F("LEG "));
     Serial.print(leg);
-    Serial.print(F("/4: Walk "));
-    Serial.print(STEPS_PER_LEG);
-    Serial.println(F(" paces straight, then press the device button."));
+    Serial.println(F("/4: Walk straight ahead."));
 
     soundBeep(1800, 150);
-    waitForButtonPress();
 
-    // --- Turn Leg ---
-    if (leg < 4) {
+    // Watch for button click OR an obstacle
+    bool obstacleEncountered = waitForWalkOrObstacle();
+
+    if (obstacleEncountered) {
+      // Emergency Obstacle Screen
       display.clearDisplay();
-      drawArrowRight();
       display.setTextSize(1);
       display.setTextColor(SH110X_WHITE);
-      display.setCursor(16, 44);
-      display.println(F("COURSE VECTOR"));
-      display.setCursor(10, 54);
-      display.println(F("TURN 90*R >PRESS<"));
+      display.setCursor(12, 10);
+      display.println(F("! OBSTACLE DETECTED !"));
+      display.setCursor(6, 30);
+      display.println(F("EMERGENCY REROUTE"));
+      display.setCursor(8, 48);
+      display.println(F("FORCING IMMEDIATE TURN"));
       display.display();
 
-      // Mirror to Laptop
-      Serial.println(F("TURN: Rotate 90 degrees right, then press the device button."));
+      Serial.println(F("ALERT: Obstacle detected within 20cm! Rerouting with forced turn..."));
 
-      soundBeep(1300, 120);
-      delay(80);
-      soundBeep(1300, 200);
-      waitForButtonPress();
+      // Alarm warning beeps
+      soundBeep(700, 100); delay(50);
+      soundBeep(700, 100); delay(50);
+      soundBeep(700, 250);
+      delay(1000);
+
+      // Force course alteration
+      showTurnDirective();
+      leg++; // Advance leg count
+      continue;
     }
+
+    // --- Step B: Regular Turn (Legs 1-3) ---
+    if (leg < 4) {
+      showTurnDirective();
+    }
+    leg++;
   }
 
-  // 3. Arrival
+  // 3. Triumphant Arrival
   display.clearDisplay();
   display.setTextSize(1);
   display.setTextColor(SH110X_WHITE);
@@ -151,7 +225,7 @@ void executeMockJourney() {
 
   Serial.println(F("DESTINATION REACHED"));
 
-  // Victory Fanfare
+  // Fanfare
   soundBeep(523, 150); delay(40);
   soundBeep(659, 150); delay(40);
   soundBeep(784, 150); delay(40);

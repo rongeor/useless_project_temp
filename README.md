@@ -1,57 +1,52 @@
-# 🧭 TrueHomeFinder: The Zero-Waste Navigation Engine
+<img width="1280" height="640" alt="git (1)" src="https://github.com/user-attachments/assets/8920b256-2ba8-4988-b824-5351134eb4bd" />
 
-> An over-engineered, satirical navigation console that cuts out unnecessary travel by guiding you in a strict square directly back to where you started.
+# TrueHomeFinder 🎯
 
----
+## Basic Details
+### Team Name: Zen
 
-### 👥 Team Details
-* **Member 1:** Ron George ([@rongeor](https://github.com/rongeor))
-* **Venue:** [Insert your venue/campus name here]
+### Team Members
+- Team Lead: Abhinandh Shine - Saintgits College of Engineering
+- Member 2: Ron Geo Roy - Saintgits College of Engineering
 
----
+### Project Description
+TrueHomeFinder is an over-engineered, satirical navigation console that cuts out the middleman of travel. It accepts any global target destination, runs mock quantum pathfinding calculations, and guides the user through four strict 90-degree turns to deliver them right back to their couch with 100% positional accuracy and zero wasted travel.
 
-### 💡 The Problem (That Nobody Had)
-Most modern journeys end with people simply wanting to go back home, yet navigation systems insist on routing them to destinations across town first. Traditional pathfinding wastes time, gas, and cognitive energy on intermediate stops.
+### The Problem (that doesn't exist)
+Most journeys end with people just wanting to be back home, yet traditional navigation systems waste precious time, fuel, and energy taking them somewhere else first. 
 
-### ⚙️ The "Solution"
-**TrueHomeFinder** cuts out the middleman entirely:
-1. The user picks any target destination on earth via a laptop dispatch terminal (e.g., Paris, Mars, the local bakery).
-2. The Arduino Uno runs quantum route calculations on an SH1106 OLED HUD.
-3. The system directs the user through four strict 90-degree right turns and fixed-pace walking intervals confirmed via tactile hardware button presses.
-4. The user arrives back at their exact origin with **100% positional accuracy** and **0% wasted travel**.
+### The Solution (that nobody asked for)
+We cut out the middleman entirely. By issuing strict, step-by-step physical walking directions in a tightly coordinated square, the system guides you through four right turns and returns you exactly to your point of origin—guaranteeing 100% arrival success every single time.
 
----
+## Technical Details
 
-### 🛠️ Hardware & Tools Used
-* **Microcontroller:** Arduino Uno (ATmega328P)
-* **HUD Display:** 1.3" / 0.96" I2C OLED (SH1106 Driver)
-* **Audio Module:** 5V Piezo Buzzer
-* **Input:** Tactile momentary push button
-* **Software:** Arduino C++, Python 3 (`pyserial`), Adafruit GFX & SH110X libraries
+### Technologies/Components Used
 
----
+For Software:
+- Languages: C++, Python
+- Frameworks: Arduino Core
+- Libraries: `Wire.h`, `Adafruit_GFX`, `Adafruit_SH110X`, `pyserial`
+- Tools: Arduino IDE, VS Code, Wokwi Simulator
 
-### 🔌 Pin Mapping
-
-| Component | Pin | Arduino Uno |
-| :--- | :--- | :--- |
-| **SH1106 OLED** | VCC / GND | `5V` / `GND` |
-| | SCK / SCL | `A5` |
-| | SDA | `A4` |
-| **Tactile Button** | Leg 1 / Leg 2 | `Pin 2` / `GND` |
-| **Piezo Buzzer** | (+) / (-) | `Pin 8` / `GND` |
+For Hardware:
+- 1x Arduino Uno (ATmega328P)
+- 1x 1.3" / 0.96" I2C OLED Display (SH1106 Driver, 128x64)
+- 1x Piezo Buzzer (5V)
+- 1x Momentary Tactile Push Button
+- Breadboard & Jumper Wires
+- USB Type-A to Type-B Cable
 
 ---
 
-### 🚀 Setup & Execution
+### Implementation
 
-#### 1. Flash Firmware
-1. Open `src/firmware/firmware.ino` in Arduino IDE.
-2. Install libraries: `Adafruit GFX` and `Adafruit_SH110X`.
-3. Select board `Arduino Uno` and flash the board.
+For Software:
 
-#### 2. Launch Host Terminal
-1. Close the Arduino Serial Monitor so the port is free.
-2. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
+# Installation
+```bash
+# Clone the repository
+git clone [https://github.com/rongeor/useless_project_temp.git](https://github.com/rongeor/useless_project_temp.git)
+cd useless_project_temp
+
+# Install Python requirements
+pip install -r requirements.txt
