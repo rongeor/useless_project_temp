@@ -1,20 +1,20 @@
-# 🧭 TrueHomeFinder: The Zero-Waste Navigation Engine
+# TrueHomeFinder: The Zero-Waste Navigation Engine
 
 > An over-engineered, satirical navigation console that cuts out unnecessary travel by guiding you in a strict square directly back to where you started.
 
 ---
 
-### 👥 Team Details
+###  Team Details
 Team Lead: Abhinadh Shine - Saintgits College of Engineering
 
 Member 2: Ron Geo Roy - Saintgits College of Engineering
 
 ---
 
-### 💡 The Problem (That Nobody Had)
+### The Problem (That Nobody Had)
 Most modern journeys end with people simply wanting to go back home, yet navigation systems insist on routing them to destinations across town first. Traditional pathfinding wastes time, gas, and cognitive energy on intermediate stops.
 
-### ⚙️ The "Solution"
+### The "Solution"
 **TrueHomeFinder** cuts out the middleman entirely:
 1. The user picks any target destination on earth via a laptop dispatch terminal .
 2. The Arduino Uno runs quantum route calculations on an SH1106 OLED HUD.
@@ -23,7 +23,7 @@ Most modern journeys end with people simply wanting to go back home, yet navigat
 
 ---
 
-### 🛠️ Hardware & Tools Used
+### Hardware & Tools Used
 * **Microcontroller:** Arduino Uno 
 * **HUD Display:** 1.3" / 0.96" I2C OLED (SH1106 Driver)
 * **Audio Module:** 5V Piezo Buzzer
@@ -33,7 +33,7 @@ Most modern journeys end with people simply wanting to go back home, yet navigat
 
 ---
 
-### 🔌 Pin Mapping
+### Pin Mapping
 
 | Component | Pin | Arduino Uno |
 | :--- | :--- | :--- |
@@ -45,7 +45,7 @@ Most modern journeys end with people simply wanting to go back home, yet navigat
 
 ---
 
-### 🚀 Setup & Execution
+### Setup & Execution
 
 #### 1. Flash Firmware
 1. Open `src/firmware/firmware.ino` in Arduino IDE.
