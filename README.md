@@ -1,103 +1,57 @@
-<img width="1280" height="640" alt="git (1)" src="https://github.com/user-attachments/assets/8920b256-2ba8-4988-b824-5351134eb4bd" />
+# 🧭 TrueHomeFinder: The Zero-Waste Navigation Engine
 
-
-
-# [Project Name] 🎯
-
-
-## Basic Details
-### Team Name: [Name]
-
-
-### Team Members
-- Team Lead: [Name] - [College]
-- Member 2: [Name] - [College]
-- Member 3: [Name] - [College]
-
-### Project Description
-[2-3 lines about what your project does]
-
-### The Problem (that doesn't exist)
-[What ridiculous problem are you solving?]
-
-### The Solution (that nobody asked for)
-[How are you solving it? Keep it fun!]
-
-## Technical Details
-### Technologies/Components Used
-For Software:
-- [Languages used]
-- [Frameworks used]
-- [Libraries used]
-- [Tools used]
-
-For Hardware:
-- [List main components]
-- [List specifications]
-- [List tools required]
-
-### Implementation
-For Software:
-# Installation
-[commands]
-
-# Run
-[commands]
-
-### Project Documentation
-For Software:
-
-# Screenshots (Add at least 3)
-![Screenshot1](Add screenshot 1 here with proper name)
-*Add caption explaining what this shows*
-
-![Screenshot2](Add screenshot 2 here with proper name)
-*Add caption explaining what this shows*
-
-![Screenshot3](Add screenshot 3 here with proper name)
-*Add caption explaining what this shows*
-
-# Diagrams
-![Workflow](Add your workflow/architecture diagram here)
-*Add caption explaining your workflow*
-
-For Hardware:
-
-# Schematic & Circuit
-![Circuit](Add your circuit diagram here)
-*Add caption explaining connections*
-
-![Schematic](Add your schematic diagram here)
-*Add caption explaining the schematic*
-
-# Build Photos
-![Components](Add photo of your components here)
-*List out all components shown*
-
-![Build](Add photos of build process here)
-*Explain the build steps*
-
-![Final](Add photo of final product here)
-*Explain the final build*
-
-### Project Demo
-# Video
-[Add your demo video link here]
-*Explain what the video demonstrates*
-
-# Additional Demos
-[Add any extra demo materials/links]
-
-## Team Contributions
-- [Name 1]: [Specific contributions]
-- [Name 2]: [Specific contributions]
-- [Name 3]: [Specific contributions]
+> An over-engineered, satirical navigation console that cuts out unnecessary travel by guiding you in a strict square directly back to where you started.
 
 ---
-Made with ❤️ at TinkerHub Useless Projects 
 
-![Static Badge](https://img.shields.io/badge/TinkerHub-24?color=%23000000&link=https%3A%2F%2Fwww.tinkerhub.org%2F)
-![Static Badge](https://img.shields.io/badge/UselessProjects--26-26?link=https%3A%2F%2Ftinkerhub.org%2Fevents%2F1M8ORET9A1%2Fuseless-projects-3.0)
+### 👥 Team Details
+* **Member 1:** Ron George ([@rongeor](https://github.com/rongeor))
+* **Venue:** [Insert your venue/campus name here]
 
+---
 
+### 💡 The Problem (That Nobody Had)
+Most modern journeys end with people simply wanting to go back home, yet navigation systems insist on routing them to destinations across town first. Traditional pathfinding wastes time, gas, and cognitive energy on intermediate stops.
 
+### ⚙️ The "Solution"
+**TrueHomeFinder** cuts out the middleman entirely:
+1. The user picks any target destination on earth via a laptop dispatch terminal (e.g., Paris, Mars, the local bakery).
+2. The Arduino Uno runs quantum route calculations on an SH1106 OLED HUD.
+3. The system directs the user through four strict 90-degree right turns and fixed-pace walking intervals confirmed via tactile hardware button presses.
+4. The user arrives back at their exact origin with **100% positional accuracy** and **0% wasted travel**.
+
+---
+
+### 🛠️ Hardware & Tools Used
+* **Microcontroller:** Arduino Uno (ATmega328P)
+* **HUD Display:** 1.3" / 0.96" I2C OLED (SH1106 Driver)
+* **Audio Module:** 5V Piezo Buzzer
+* **Input:** Tactile momentary push button
+* **Software:** Arduino C++, Python 3 (`pyserial`), Adafruit GFX & SH110X libraries
+
+---
+
+### 🔌 Pin Mapping
+
+| Component | Pin | Arduino Uno |
+| :--- | :--- | :--- |
+| **SH1106 OLED** | VCC / GND | `5V` / `GND` |
+| | SCK / SCL | `A5` |
+| | SDA | `A4` |
+| **Tactile Button** | Leg 1 / Leg 2 | `Pin 2` / `GND` |
+| **Piezo Buzzer** | (+) / (-) | `Pin 8` / `GND` |
+
+---
+
+### 🚀 Setup & Execution
+
+#### 1. Flash Firmware
+1. Open `src/firmware/firmware.ino` in Arduino IDE.
+2. Install libraries: `Adafruit GFX` and `Adafruit_SH110X`.
+3. Select board `Arduino Uno` and flash the board.
+
+#### 2. Launch Host Terminal
+1. Close the Arduino Serial Monitor so the port is free.
+2. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
