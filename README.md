@@ -42,6 +42,9 @@ For Hardware:
 
 For Software:
 
+### Screenshots
+<img width="775" height="650" alt="Screenshot 2026-09-12 213826" src="https://github.com/user-attachments/assets/c208ad9c-b673-4a95-995e-55668c1cc692" />
+
 # Installation
 ```bash
 # Clone the repository
