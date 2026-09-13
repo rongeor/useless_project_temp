@@ -1,5 +1,9 @@
 
 
+
+
+
+
 <img width="1280" height="640" alt="git (1)" src="https://github.com/user-attachments/assets/8920b256-2ba8-4988-b824-5351134eb4bd" />
 
 
@@ -63,6 +67,6 @@ pip install -r requirements.txt
 
 
 ### Video:
-https://github.com/user-attachments/assets/c1b8c3fe-8a51-4fe8-b848-cbe86123dc30
+[https://github.com/user-attachments/assets/c1b8c3fe-8a51-4fe8-b848-cbe86123dc30](https://github.com/user-attachments/assets/441f89bf-e216-4d48-a208-5f42746067c9)
 
 
