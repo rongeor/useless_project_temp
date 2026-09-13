@@ -44,4 +44,10 @@ For Software:
 
 ### Screenshots
 <img width="870" height="455" alt="image" src="https://github.com/user-attachments/assets/382567b3-6ec3-478a-9e12-d9a4c095eca2" />
-<img width="1200" height="1600" alt="image" src="https://github.com/user-attachments/assets/e0f92abf-5079-4627-a6cc-b0fd526e844a" />
+<img width="941" height="590" alt="image" src="https://github.com/user-attachments/assets/0980fd1e-307a-4988-8987-819f9d7f6b17" />
+<img width="1200" height="1600" alt="image" src="https://github.com/user-attachments/assets/d5a4a510-86d9-472a-a23a-1f768b6f156f" />
+
+
+### Video:
+https://github.com/user-attachments/assets/cef329f8-d163-431e-94bc-7ff5db6fb31c
+
