@@ -1,27 +1,27 @@
 <img width="1280" height="640" alt="git (1)" src="https://github.com/user-attachments/assets/8920b256-2ba8-4988-b824-5351134eb4bd" />
 
-# TrueHomeFinder 🎯
+
+# Transcendence Compass 🎯
 
 ## Basic Details
-### Team Name: Zen
+### Team Name: Vector Zero
 
 ### Team Members
 - Team Lead: Abhinandh Shine - Saintgits College of Engineering
 - Member 2: Ron Geo Roy - Saintgits College of Engineering
 
 ### Project Description
-TrueHomeFinder is an over-engineered, satirical navigation console that cuts out the middleman of travel. It accepts any global target destination, runs mock quantum pathfinding calculations, and guides the user through four strict 90-degree turns to deliver them right back to their couch with 100% positional accuracy and zero wasted travel.
+The Transcendence Compass is an acoustic-assisted mindfulness navigator engineered to prove the timeless philosophical truth: "Wherever you go, there you are." By guiding seekers through a sacred orthogonal walking loop using precise directional cues and sonar-based ego evasion, the system triumphantly returns the pilgrim to their exact starting point with 0.00m displacement and total spiritual fulfillment.
 
 ### The Problem (that doesn't exist)
-Most journeys end with people just wanting to be back home, yet traditional navigation systems waste precious time, fuel, and energy taking them somewhere else first. 
+Modern humans exhaust tremendous energy, time, and travel expenses journeying to remote corners of the Earth in search of "inner peace." They embark on pilgrimage after pilgrimage, completely oblivious to the fact that their physical bodies remain tethered to the present moment wherever they wander.
 
 ### The Solution (that nobody asked for)
-We cut out the middleman entirely. By issuing strict, step-by-step physical walking directions in a tightly coordinated square, the system guides you through four right turns and returns you exactly to your point of origin—guaranteeing 100% arrival success every single time.
+The Transcendence Compass optimizes spiritual enlightenment down to four orthogonal legs. A seeker inputs their desired state of enlightenment via a host console, after which the device uses an SH1106 OLED HUD, ultrasonic karmic sensors, and meditative acoustic pacing to guide them in a closed sacred square. Upon completing four mindful rotations, the system detects zero displacement and declares: "PEACE DISCOVERED: YOU ARE ALREADY HERE."
 
 ## Technical Details
 
 ### Technologies/Components Used
-
 For Software:
 - Languages: C++, Python
 - Frameworks: Arduino Core
@@ -29,18 +29,24 @@ For Software:
 - Tools: Arduino IDE, VS Code, Wokwi Simulator
 
 For Hardware:
-- 1x Arduino Uno (ATmega328P)
-- 1x 1.3" / 0.96" I2C OLED Display (SH1106 Driver, 128x64)
-- 1x Piezo Buzzer (5V)
-- 1x Momentary Tactile Push Button
-- Breadboard & Jumper Wires
-- USB Type-A to Type-B Cable
-
----
+- Microcontroller: Arduino Uno (ATmega328P)
+- Display: 1.3" / 0.96" I2C OLED (SH1106 Driver, 128x64, Address: `0x3C`)
+- Sensors: HC-SR04 Ultrasonic Sonar Module (Karmic Obstacle Evasion)
+- Audio: 5V Active-High Piezo Buzzer (Acoustic Metronome & Fanfare)
+- Input: Momentary Tactile Pushbutton (Mindful Step Confirmation)
+- Prototyping: Half-size breadboard, jumper leads, USB Type-A to Type-B cable
 
 ### Implementation
-
 For Software:
+
+# Installation
+
+# Clone the repository
+git clone [https://github.com/rongeor/useless_project_temp.git](https://github.com/rongeor/useless_project_temp.git)
+cd useless_project_temp
+
+# Install Python requirements
+pip install -r requirements.txt
 
 ### Screenshots
 <img width="941" height="590" alt="image" src="https://github.com/user-attachments/assets/0980fd1e-307a-4988-8987-819f9d7f6b17" />
