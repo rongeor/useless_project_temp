@@ -37,7 +37,7 @@ long readUltrasonicCM() {
 }
 
 bool waitForWalkOrObstacle() {
-  Serial.println(F("[WALKING] Collision avoidance active..."));
+  Serial.println(F("[PILGRIMAGE] Mindful pacing active... Acoustic presence vigilant."));
 
   while (true) {
     if (digitalRead(PIN_BUTTON) == LOW) {
@@ -83,12 +83,12 @@ void showTurnDirective() {
   display.setTextSize(1);
   display.setTextColor(SH110X_WHITE);
   display.setCursor(16, 44);
-  display.println(F("COURSE VECTOR"));
-  display.setCursor(10, 54);
-  display.println(F("TURN 90*R >PRESS<"));
+  display.println(F("ALIGN ENERGY"));
+  display.setCursor(6, 54);
+  display.println(F("SACRED 90*R >PRESS<"));
   display.display();
 
-  Serial.println(F("TURN: Rotate 90 degrees right, then press button."));
+  Serial.println(F("SACRED ROTATION: Turn 90 degrees right to align energy, then press button."));
 
   soundBeep(1300, 120);
   delay(80);
@@ -100,12 +100,12 @@ void showSelectDestinationScreen() {
   display.clearDisplay();
   display.setTextSize(1);
   display.setTextColor(SH110X_WHITE);
-  display.setCursor(14, 15);
-  display.println(F("AWAITING TARGET..."));
-  display.setCursor(6, 35);
-  display.println(F("SELECT DESTINATION"));
-  display.setCursor(24, 48);
-  display.println(F("ON LAPTOP"));
+  display.setCursor(4, 12);
+  display.println(F("TRANSCENDENCE COMPASS"));
+  display.setCursor(6, 32);
+  display.println(F("PRESS TO SEEK PEACE"));
+  display.setCursor(16, 48);
+  display.println(F("SET VIA LAPTOP"));
   display.display();
 }
 
@@ -116,7 +116,6 @@ void setup() {
   pinMode(PIN_TRIG, OUTPUT);
   pinMode(PIN_ECHO, INPUT);
 
-  // Seed random generator with analog pin noise
   randomSeed(analogRead(A0));
 
   display.begin(i2c_Address, true);
@@ -128,15 +127,15 @@ void executeMockJourney() {
   display.setTextSize(1);
   display.setTextColor(SH110X_WHITE);
   display.setCursor(0, 10);
-  display.print(F("TARGET: "));
+  display.print(F("SEEKING: "));
   display.println(targetDestination);
   display.setCursor(0, 30);
-  display.println(F("OPTIMIZING TRAJECTORY"));
+  display.println(F("SEEKING ENLIGHTENMENT..."));
   display.setCursor(0, 45);
-  display.println(F("AVOIDING DETOURS..."));
+  display.println(F("TRANSCENDING SPACE..."));
   display.display();
 
-  Serial.print(F("Routing directly to: "));
+  Serial.print(F("Initiating mindful path to: "));
   Serial.println(targetDestination);
 
   for (int i = 0; i < 4; i++) {
@@ -146,28 +145,27 @@ void executeMockJourney() {
 
   int leg = 1;
   while (leg <= 4) {
-    // Generate a random step count strictly less than 5 (2, 3, or 4 paces)
     int stepsThisLeg = random(2, 5);
 
     display.clearDisplay();
     drawArrowUp();
     display.setTextSize(1);
     display.setTextColor(SH110X_WHITE);
-    display.setCursor(28, 44);
+    display.setCursor(20, 44);
     display.print(F("LEG "));
     display.print(leg);
-    display.println(F("/4: AHEAD"));
-    display.setCursor(8, 54);
-    display.print(F("WALK "));
+    display.println(F("/4: PRESENT"));
+    display.setCursor(4, 54);
+    display.print(F("MINDFUL "));
     display.print(stepsThisLeg);
     display.println(F("P >PRESS<"));
     display.display();
 
     Serial.print(F("LEG "));
     Serial.print(leg);
-    Serial.print(F("/4: Walk "));
+    Serial.print(F("/4: Take "));
     Serial.print(stepsThisLeg);
-    Serial.println(F(" paces straight."));
+    Serial.println(F(" mindful steps straight forward."));
 
     soundBeep(1800, 150);
 
@@ -177,15 +175,15 @@ void executeMockJourney() {
       display.clearDisplay();
       display.setTextSize(1);
       display.setTextColor(SH110X_WHITE);
-      display.setCursor(12, 10);
-      display.println(F("! OBSTACLE DETECTED !"));
-      display.setCursor(6, 30);
-      display.println(F("EMERGENCY REROUTE"));
-      display.setCursor(8, 48);
-      display.println(F("FORCING IMMEDIATE TURN"));
+      display.setCursor(2, 10);
+      display.println(F("WORLDLY DISTRACTION!"));
+      display.setCursor(18, 30);
+      display.println(F("EVADING EGO..."));
+      display.setCursor(10, 48);
+      display.println(F("KARMIC CORRECTION"));
       display.display();
 
-      Serial.println(F("ALERT: Obstacle within 20cm! Rerouting with forced turn..."));
+      Serial.println(F("ALERT: Worldly distraction spotted! Evading ego with immediate rotation..."));
 
       soundBeep(700, 100); delay(50);
       soundBeep(700, 100); delay(50);
@@ -206,17 +204,21 @@ void executeMockJourney() {
   display.clearDisplay();
   display.setTextSize(1);
   display.setTextColor(SH110X_WHITE);
-  display.setCursor(4, 10);
-  display.println(F("ROUTE FULLY RESOLVED"));
+  display.setCursor(18, 6);
+  display.println(F("PEACE DISCOVERED:"));
 
-  display.setTextSize(2);
-  display.setCursor(0, 26);
-  display.println(F("DESTINATION"));
-  display.setCursor(20, 46);
-  display.println(F("REACHED"));
+  display.setTextSize(1);
+  display.setCursor(6, 24);
+  display.println(F("YOU ARE ALREADY HERE"));
+
+  display.setTextSize(1);
+  display.setCursor(6, 44);
+  display.println(F("DISPLACEMENT: 0.00m"));
+  display.setCursor(10, 55);
+  display.println(F("TRUE ZEN ATTAINED"));
   display.display();
 
-  Serial.println(F("DESTINATION REACHED"));
+  Serial.println(F("PEACE DISCOVERED: YOU ARE ALREADY HERE (DISPLACEMENT: 0.00m)"));
 
   soundBeep(523, 150); delay(40);
   soundBeep(659, 150); delay(40);
