@@ -10,7 +10,7 @@
 # Transcendence Compass 🎯
 
 ## Basic Details
-### Team Name: Vector Zero
+### Team Name: Zen
 
 ### Team Members
 - Team Lead: Abhinandh Shine - Saintgits College of Engineering
