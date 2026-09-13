@@ -47,10 +47,12 @@ For Software:
 
 ### Diagrams:
 <img width="870" height="455" alt="image" src="https://github.com/user-attachments/assets/382567b3-6ec3-478a-9e12-d9a4c095eca2" />
-<img width="1200" height="1600" alt="image" src="https://github.com/user-attachments/assets/d5a4a510-86d9-472a-a23a-1f768b6f156f" />
+
 
 ### Build Photos:
-<img width="1200" height="1600" alt="image" src="https://github.com/user-attachments/assets/d5a4a510-86d9-472a-a23a-1f768b6f156f" />
+<img width="899" height="1599" alt="image" src="https://github.com/user-attachments/assets/d29c0fb3-fc36-4231-85bd-d3fac3744230" />
+<img width="1599" height="899" alt="image" src="https://github.com/user-attachments/assets/fd10d61b-b664-4ed0-9749-807358efb664" />
+
 
 ### Video:
 https://github.com/user-attachments/assets/cef329f8-d163-431e-94bc-7ff5db6fb31c
