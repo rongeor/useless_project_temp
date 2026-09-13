@@ -43,13 +43,5 @@ For Hardware:
 For Software:
 
 ### Screenshots
-<img width="775" height="650" alt="Screenshot 2026-09-12 213826" src="https://github.com/user-attachments/assets/c208ad9c-b673-4a95-995e-55668c1cc692" />
-
-# Installation
-```bash
-# Clone the repository
-git clone [https://github.com/rongeor/useless_project_temp.git](https://github.com/rongeor/useless_project_temp.git)
-cd useless_project_temp
-
-# Install Python requirements
-pip install -r requirements.txt
+<img width="870" height="455" alt="image" src="https://github.com/user-attachments/assets/382567b3-6ec3-478a-9e12-d9a4c095eca2" />
+<img width="1200" height="1600" alt="image" src="https://github.com/user-attachments/assets/e0f92abf-5079-4627-a6cc-b0fd526e844a" />
